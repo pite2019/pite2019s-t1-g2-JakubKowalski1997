@@ -29,5 +29,8 @@ from Car import Car
 
 if __name__ == "__main__":	
     car1 = Car()
-    car1.act('run',10)
-    car1.act('turn right',10)
+
+    while car1.is_break != True:
+        input_acts = input()
+        car1.act(input_acts,10)
+
