@@ -25,4 +25,9 @@
 #
 #Delete these comments before commit!
 #Good luck.
-    
+from Car import Car
+
+if __name__ == "__main__":	
+    car1 = Car()
+    car1.act('run',10)
+    car1.act('turn right',10)
