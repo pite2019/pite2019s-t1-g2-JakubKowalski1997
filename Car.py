@@ -4,7 +4,7 @@ class Car:
         self.speed = 0
         self.time = 0
         self.is_break = False
-        self.actions = {'run': self.run, 'turn right': self.turn_right, 'turn left': self.turn_left, 'obstacle': self.pass_by_obstacle, 'ja':'dupa'}
+        self.actions = {'run': self.run, 'turn right': self.turn_right, 'turn left': self.turn_left, 'obstacle': self.pass_by_obstacle}
 
     def __add__(value_first, value_second):
         print ("Adding: ")
