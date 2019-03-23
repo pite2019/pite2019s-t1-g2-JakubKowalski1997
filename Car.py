@@ -4,6 +4,7 @@ class Car:
         self.speed = 0
         self.time = 0
         self.is_break = False
+        self.actions = {'run': self.run, 'turn right': self.turn_right, 'turn left': self.turn_left, 'obstacle': self.pass_by_obstacle, 'ja':'dupa'}
 
     def __add__(value_first, value_second):
         print ("Adding: ")
@@ -11,23 +12,16 @@ class Car:
 
     def act(self,event, time):
         print('Before action: speed: {}, wheel_angle: {}'.format(self.speed, self.wheel_angle))
-        if event == 'run':
-            self.speed = 90
-        elif event == 'turn right':
-            self.turn_right
-        elif event == 'turn left':
-            self.turn_left
-        elif event == 'break':
+        if event == 'break':
             self.is_break = True
             print('Car brake')
-        elif event == 'obstacle':
-            self.turn_right
-            self.turn_left
-        else:
+        elif self.actions.get(event) == None:
             raise Exception("Unknown operation")
-        self.time += time
+        else:
+            self.actions[event]()
         print('After action: speed: {}, wheel_angle: {}'.format(self.speed, self.wheel_angle))
         print('Time: ', self.time)
+
 
     def turn_right(self):
         self.wheel_angle = self.wheel_angle + 90
@@ -37,3 +31,10 @@ class Car:
         self.wheel_angle = self.wheel_angle - 90
         self.speed = self.speed - 10
 
+    def run(self):
+        print ('dupa')
+        self.speed = 90
+
+    def pass_by_obstacle(self):
+        self.turn_right
+        self.turn_left
