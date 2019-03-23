@@ -32,7 +32,6 @@ class Car:
         self.speed = self.speed - 10
 
     def run(self):
-        print ('dupa')
         self.speed = 90
 
     def pass_by_obstacle(self):
